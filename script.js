@@ -67,41 +67,44 @@ const handleAddOrderBtn = (e) => { // new order btn
 const handleSubmitBtn = (e) => {
     e.preventDefault();
     const submit = e.target;
-    if (submit.matches('.submitOrder')) {
+    if (submit.matches('form')) {
         console.log('it matches');
         // grab the form input
-const name = document.getElementById('name');
-const dish = document.querySelector('[name="dish"]');
-const size = document.getElementsByName('size');
-const quantity = document.getElementById('quantity');
-        const newOrder = `
-        <div class="order" data-dish="${dish.value}" data-size="${size.value}" data-amount="${quantity.value}">
-					<span class="title">
-						${name.value}
-					</span>
-					<button class="details">Details</button>
-					<button class="served">Delete order</button>
-				</div>
-			</div>
-        `;
+            const name = submit.name;
+            const dish = submit.dish;
+            const size = submit.size;
+            const quantity = submit.amount;
+            // create the detail html
+            const newOrder = `
+            <div class="order" data-dish="${dish.value}" data-size="${size.value}" data-amount="${quantity.value}">
+                        <span class="title">
+                            ${name.value}
+                        </span>
+                        <button class="details">Details</button>
+                        <button class="served">Delete order</button>
+                    </div>
+                </div>
+            `;
 
-        orderList.innerHTML += newOrder;
-    }
+            orderList.innerHTML += newOrder;
+        }
+    // reset the form
+    submit.reset();
 }
 
-// close the form
-const closeForm = () => {
+// close the modal
+const closeModal = () => {
     outerModal.classList.remove('open');
 }
 outerModal.addEventListener('click', event => { //click out
     const isOutside = !event.target.closest('.inner-modal');
     if (isOutside) {
-        closeForm();
+        closeModal();
     } 
 });
-window.addEventListener('keydown', event => { // escape
+window.addEventListener('keydown', event => { // escape btn
     if (event.key === 'Escape') {
-        closeForm();
+        closeModal();
     }
 });
 
@@ -135,10 +138,10 @@ const handleDeleteBtn = (e) => {
 	}
 }
 
-// add event listener the buttons
+// add event listener to the buttons
 addOrderBtn.addEventListener('click', handleAddOrderBtn);
 
-window.addEventListener('click', handleSubmitBtn);
+window.addEventListener('submit', handleSubmitBtn);
 
 window.addEventListener('click', handleDetailsBtn);
 
