@@ -96,7 +96,7 @@ button.served:hover {
 	color: white;
 }
 
-.outer {
+.outer-modal {
 	display: grid;
 	justify-content: center;
 	align-items: center;
@@ -110,12 +110,12 @@ button.served:hover {
 	left: 0;
 }
 
-.outer.open {
+.outer-modal.open {
 	opacity: 1;
 	pointer-events: all;
 }
 
-.inner {
+.inner-modal {
 	
 	background-color: white;
 	font-family: Arial, Helvetica, sans-serif;
