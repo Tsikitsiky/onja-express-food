@@ -73,15 +73,9 @@ const handleSubmitBtn = (e) => {
 const name = document.getElementById('name');
 const dish = document.querySelector('[name="dish"]');
 const size = document.getElementsByName('size');
-for (let i = 0; i < size.length; i++) {
-    size[i].addEventListener('change', ($event) => {
-      let sizeValue = `${$event.target.value}`;
-      return sizeValue;
-    })
-  };
 const quantity = document.getElementById('quantity');
         const newOrder = `
-        <div class="order" data-dish="${dish.value}" data-size="${size.value}" data-amount="${quantity}">
+        <div class="order" data-dish="${dish.value}" data-size="${size.value}" data-amount="${quantity.value}">
 					<span class="title">
 						${name.value}
 					</span>
