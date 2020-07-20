@@ -51,7 +51,7 @@ const handleAddOrderBtn = (e) => { // new order btn
         <button class="submitOrder" type="submit">Add this order</button>
     </form>
     `;
-
+// add the html into the modal
     innerModal.innerHTML = myForm;
 
     outerModal.classList.add('open');
@@ -96,7 +96,7 @@ outerModal.addEventListener('click', event => { //click out
         closeModal();
     } 
 });
-window.addEventListener('keydown', event => { // escape btn
+window.addEventListener('keydown', event => { // with escape key
     if (event.key === 'Escape') {
         closeModal();
     }
@@ -118,7 +118,7 @@ const handleDetailsBtn = (e) => {
             <p>${amoutOrdered} ${sizeOrdered} ${disheOrdered}</p>
             <img src="https://picsum.photos/200" alt="Nice pic">
         `;
-        innerModal.innerHTML = myDetail;
+        innerModal.innerHTML = myDetail; // insert it into the modal
         outerModal.classList.add('open')
     }
 };
@@ -127,7 +127,7 @@ const handleDetailsBtn = (e) => {
 const handleDeleteBtn = (e) => {
     const deleteBtn = e.target;
     if (deleteBtn.matches('.served')) {
-		// delete the closet element with the .card class
+		// delete the closest element with the .card class
 		deleteBtn.closest('.order').remove();
 	}
 }
@@ -140,5 +140,3 @@ window.addEventListener('submit', handleSubmitBtn);
 window.addEventListener('click', handleDetailsBtn);
 
 window.addEventListener('click', handleDeleteBtn);
-
-
