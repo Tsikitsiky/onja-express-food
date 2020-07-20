@@ -81,7 +81,7 @@ for (let i = 0; i < size.length; i++) {
   };
 const quantity = document.getElementById('quantity');
         const newOrder = `
-        <div class="order" data-dish="${dish.valu}" data-size="${size.value}" data-amount="${quantity}">
+        <div class="order" data-dish="${dish.value}" data-size="${size.value}" data-amount="${quantity}">
 					<span class="title">
 						${name.value}
 					</span>
