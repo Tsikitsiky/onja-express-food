@@ -1,14 +1,9 @@
 console.log('good luck!');
 
 const orderList = document.querySelector('.order-list');
-const delailsBtn = document.querySelector('.details');
-const deleteBtn = document.querySelector('.served');
 const addOrderBtn = document.querySelector('.add-order');
 const outerModal = document.querySelector('.outer-modal');
 const innerModal = document.querySelector('.inner-modal');
-const submitOrderBtn = document.querySelector('.submitOrder');
-const form = document.querySelector('form');
-
 
 // handle the buttons
 
@@ -66,14 +61,13 @@ const handleAddOrderBtn = (e) => { // new order btn
 // form submit btn
 const handleSubmitBtn = (e) => {
     e.preventDefault();
-    const submit = e.target;
-    if (submit.matches('form')) {
-        console.log('it matches');
+    const formSubmit = e.target;
+    if (formSubmit.matches('form')) {
         // grab the form input
-            const name = submit.name;
-            const dish = submit.dish;
-            const size = submit.size;
-            const quantity = submit.amount;
+            const name = formSubmit.name;
+            const dish = formSubmit.dish;
+            const size = formSubmit.size;
+            const quantity = formSubmit.amount;
             // create the detail html
             const newOrder = `
             <div class="order" data-dish="${dish.value}" data-size="${size.value}" data-amount="${quantity.value}">
@@ -89,7 +83,7 @@ const handleSubmitBtn = (e) => {
             orderList.innerHTML += newOrder;
         }
     // reset the form
-    submit.reset();
+    formSubmit.reset();
 }
 
 // close the modal
