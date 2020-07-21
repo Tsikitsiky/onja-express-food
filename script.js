@@ -64,10 +64,11 @@ const handleSubmitBtn = (e) => {
     const formSubmit = e.target;
     if (formSubmit.matches('form')) {
         // grab the form input
-            const name = formSubmit.name;
-            const dish = formSubmit.dish;
-            const size = formSubmit.size;
-            const quantity = formSubmit.amount;
+            // const name = formSubmit.name;
+            // const dish = formSubmit.dish;
+            // const size = formSubmit.size;
+            // const quantity = formSubmit.amount;
+            const {name, dish, size, quantity} = formSubmit; // destructure
             // create the detail html
             const newOrder = `
             <div class="order" data-dish="${dish.value}" data-size="${size.value}" data-amount="${quantity.value}">
@@ -81,6 +82,7 @@ const handleSubmitBtn = (e) => {
             `;
 
             orderList.innerHTML += newOrder;
+            closeModal();
         }
     // reset the form
     formSubmit.reset();
@@ -106,7 +108,7 @@ window.addEventListener('keydown', event => { // with escape key
 const handleDetailsBtn = (e) => {
     const detailBtn = e.target;
     const order = detailBtn.closest('.order');
-        // grab the detail
+        // grab the detail/ we can also destructure them
     if (detailBtn.matches('.details')) {
         const title = order.querySelector('.title').textContent;
         const disheOrdered = order.dataset.dish;
